@@ -13589,7 +13589,7 @@ QmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>The driving agent makes bad decisions around 40%, causing around 8% major accidents, 4% minor accidents.</li>
+<li>The driving agent makes bad decisions around 40%, causing around 4% major accidents, 6% minor accidents.</li>
 <li>It makes sense that the reliability and safe rating are both F, since the agent is driving randomly.</li>
 <li>The agent receives negative rewards in all trials.</li>
 <li>As the number of trials increases, the outcome of results do not change, since there's no learning involved</li>
@@ -13648,11 +13648,9 @@ QmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>"waypoint" and "inputs" are relevant for safety, because the agent could only take safe actions if the color of the traffic light, or if there are vehicles in certain direction are known.</li>
-<li>"deadline" is relevant for efficiency, because the agent will plan the optimal moves given the limited number of actions remained.</li>
-<li>If we include the "deadline" feature, there could be a very large number of states, since the deadline could be any discrete number. For example, if the deadline is set as 20 initially and the deadline would decrement 1 after each step, there would be 20 different deadline states, which would make the number of states too large to Smartcab to learn the policy given limited number of training trials.</li>
 <li>The SmartCab's driving behavior would not depend on the inputs['right'], because whenever the SmartCab chooses to move left, forward or right, it will not collide with the dummy agent to the right of the Smartcab in any situation given the fact that all dummy agents are behaving according to the legal driving rules. So the inputs['right'] could be omitted. In the situation where the SmartCab plans to turn right and the traffic light is red, and knowing whether the car to the left is coming forward is essential. But this situation might rarely happen, so the inputs['left'] could be omitted. </li>
-<li>However, the SmartCab's driving behavior does depend on the oncoming traffic, when the traffic light is green and the SmartCab needs to yield to the oncoming traffic if it plans to turn left, or when the SmartCab intends to turn right at the red light when the oncoming traffic decides to turn left. So the inputs['oncoming'] should be included.</li>
+<li>However, the SmartCab's driving behavior does depend on the oncoming traffic, when the traffic light is green and the SmartCab needs to yield to the oncoming traffic if it plans to turn left, or when the SmartCab intends to turn right at the red light when the oncoming traffic decides to turn left. So the inputs['oncoming'] should be included.Thus, "inputs['oncoming']" is relevant for learning both safety and efficiency.</li>
+<li>If we include the "deadline" feature, there could be a very large number of states, since the deadline could be any discrete number. For example, if the deadline is set as 20 initially and the deadline would decrement 1 after each step, there would be 20 different deadline states, which would make the number of states too large to Smartcab to learn the policy given limited number of training trials.</li>
 </ul>
 
 </div>
